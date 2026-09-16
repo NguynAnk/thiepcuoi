@@ -1199,8 +1199,13 @@
                                 <i class="fa-solid fa-comments theme-text-accent"></i>
                                 <span>Sổ Lưu Bút Online</span>
                             </span>
-                            <span id="wishCountBadge"
-                                class="text-[10px] bg-blue-100 text-blue-900 border border-blue-300 px-2 py-0.5 rounded-full font-semibold">3 lời chúc</span>
+                            <div class="flex items-center gap-2">
+                                <button onclick="loadWishesFromGoogleSheet(true)" title="Tải lại danh sách lời chúc" class="text-xs text-blue-600 hover:text-blue-800 transition active:rotate-180 p-1 cursor-pointer">
+                                    <i id="refreshWishesIcon" class="fa-solid fa-arrows-rotate"></i>
+                                </button>
+                                <span id="wishCountBadge"
+                                    class="text-[10px] bg-blue-100 text-blue-900 border border-blue-300 px-2 py-0.5 rounded-full font-semibold">Đang tải...</span>
+                            </div>
                         </div>
 
                         <div id="wishesList" class="space-y-2.5 max-h-48 overflow-y-auto pr-1">
@@ -2029,46 +2034,162 @@
         })();
 
         /* =========================================================================
-           9. XỬ LÝ RSVP & SỔ LƯU BÚT TRỰC TUYẾN
+           9. XỬ LÝ RSVP & SỔ LƯU BÚT TRỰC TUYẾN (ĐỒNG BỘ GOOGLE SHEETS)
            ========================================================================= */
-        function handleRsvpSubmit(e) {
+        const WEDDING_API_URL = "https://script.google.com/macros/s/AKfycbxo9w3N8zTssAjkFZoXDE3Vd0vvhI95pxQUv0ZoCPXci4t834a-LOk46m357a6QNmpdhA/exec";
+
+        function createWishElement(name, wishes, timeStr, attendance) {
+            const div = document.createElement('div');
+            div.className = "bg-blue-50/70 p-2.5 rounded-xl border border-blue-200 text-xs transition hover:border-blue-300";
+            
+            let attendanceBadge = '';
+            if (attendance === 'yes') {
+                attendanceBadge = '<span class="text-[9px] px-1.5 py-0.5 rounded bg-blue-100 text-blue-700 font-medium ml-1.5 inline-flex items-center gap-0.5"><i class="fa-solid fa-check text-[8px]"></i>Tham dự</span>';
+            } else if (attendance === 'maybe') {
+                attendanceBadge = '<span class="text-[9px] px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-medium ml-1.5 inline-flex items-center gap-0.5"><i class="fa-solid fa-clock text-[8px]"></i>Có thể</span>';
+            }
+            
+            div.innerHTML = `
+              <div class="flex items-center justify-between">
+                <div class="flex items-center flex-wrap gap-1">
+                  <span class="font-bold text-stone-800 font-cormorant text-sm">${escapeHtml(name)}</span>
+                  ${attendanceBadge}
+                </div>
+                <span class="text-[10px] text-stone-400 font-sans">${escapeHtml(timeStr || 'Vừa xong')}</span>
+              </div>
+              <p class="text-stone-600 mt-1 text-[11px] font-sans leading-relaxed">${escapeHtml(wishes)}</p>
+            `;
+            return div;
+        }
+
+        async function loadWishesFromGoogleSheet(isManual = false) {
+            const listEl = document.getElementById('wishesList');
+            const badgeEl = document.getElementById('wishCountBadge');
+            const refreshIcon = document.getElementById('refreshWishesIcon');
+
+            if (!listEl) return;
+            if (refreshIcon) refreshIcon.classList.add('fa-spin');
+
+            try {
+                const response = await fetch(WEDDING_API_URL);
+                if (!response.ok) throw new Error("Lỗi mạng khi tải lời chúc");
+                const result = await response.json();
+
+                if (result && result.status === 'success' && Array.isArray(result.data)) {
+                    // Lọc những lời chúc có nội dung
+                    const validWishes = result.data.filter(item => item.name && (item.wishes || item.attendance));
+                    
+                    if (validWishes.length > 0) {
+                        listEl.innerHTML = '';
+                        validWishes.forEach(item => {
+                            const wishText = item.wishes ? item.wishes : (item.attendance === 'yes' ? 'Rất hân hạnh được đến chung vui cùng hai bạn!' : 'Chúc hai bạn trăm năm hạnh phúc!');
+                            const wishCard = createWishElement(item.name, wishText, item.time, item.attendance);
+                            listEl.appendChild(wishCard);
+                        });
+                        if (badgeEl) badgeEl.innerText = `${validWishes.length} lời chúc`;
+                    } else {
+                        if (badgeEl) badgeEl.innerText = '0 lời chúc';
+                    }
+                    if (isManual) showToast("Đã cập nhật danh sách lời chúc mới nhất!");
+                }
+            } catch (err) {
+                console.warn("Không thể tải lời chúc từ Google Sheet:", err);
+                if (badgeEl && badgeEl.innerText === 'Đang tải...') {
+                    badgeEl.innerText = '2 lời chúc';
+                }
+                if (isManual) showToast("Tải lại không thành công, vui lòng thử lại sau.");
+            } finally {
+                if (refreshIcon) refreshIcon.classList.remove('fa-spin');
+            }
+        }
+
+        async function handleRsvpSubmit(e) {
             e.preventDefault();
-            const name = document.getElementById('guestName').value.trim();
-            const attendance = document.getElementById('guestAttendance').value;
-            const wishes = document.getElementById('guestWishes').value.trim();
+            const nameInput = document.getElementById('guestName');
+            const attendanceInput = document.getElementById('guestAttendance');
+            const countInput = document.getElementById('guestCount');
+            const wishesInput = document.getElementById('guestWishes');
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+
+            const name = nameInput.value.trim();
+            const attendance = attendanceInput.value;
+            const count = countInput.value;
+            const wishes = wishesInput.value.trim();
 
             if (!name) return;
 
-            confetti({
-                particleCount: 120,
-                spread: 75,
-                origin: { y: 0.6 }
-            });
-
-            if (wishes) {
-                const wishesList = document.getElementById('wishesList');
-                const newWish = document.createElement('div');
-                newWish.className = "bg-amber-50/80 p-2.5 rounded-xl border border-amber-300 text-xs animate-fadeIn";
-                newWish.innerHTML = `
-                  <div class="flex items-center justify-between">
-                    <span class="font-bold text-stone-800 font-cormorant text-sm">${escapeHtml(name)}</span>
-                    <span class="text-[10px] text-amber-800 font-semibold">Vừa xong</span>
-                  </div>
-                  <p class="text-stone-700 mt-1 text-[11px] font-sans">${escapeHtml(wishes)}</p>
-                `;
-                wishesList.insertBefore(newWish, wishesList.firstChild);
-
-                const countBadge = document.getElementById('wishCountBadge');
-                const currentCount = parseInt(countBadge.innerText) || 3;
-                countBadge.innerText = `${currentCount + 1} lời chúc`;
+            // Bắn pháo hoa ăn mừng
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 120,
+                    spread: 75,
+                    origin: { y: 0.6 }
+                });
             }
 
-            showToast(`Cảm ơn ${name} đã gửi xác nhận và lời chúc mừng!`);
-            document.getElementById('rsvpForm').reset();
+            // Trạng thái nút đang gửi
+            const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>Đang lưu lời chúc...</span>`;
+            }
+
+            // Hiển thị ngay lên màn hình (Optimistic UI)
+            const listEl = document.getElementById('wishesList');
+            const displayText = wishes || (attendance === 'yes' ? 'Rất hân hạnh được đến chung vui cùng hai bạn!' : 'Chúc hai bạn trăm năm hạnh phúc!');
+            
+            if (listEl) {
+                const newWishCard = createWishElement(name, displayText, "Vừa xong", attendance);
+                newWishCard.classList.add('animate-fadeIn', 'border-amber-300', 'bg-amber-50/90');
+                listEl.insertBefore(newWishCard, listEl.firstChild);
+
+                const badgeEl = document.getElementById('wishCountBadge');
+                if (badgeEl) {
+                    const currentCount = parseInt(badgeEl.innerText) || 0;
+                    badgeEl.innerText = `${currentCount + 1} lời chúc`;
+                }
+            }
+
+            // Gửi dữ liệu đồng bộ lên Google Sheets của Dâu Rể
+            try {
+                const payload = {
+                    name: name,
+                    attendance: attendance,
+                    count: count,
+                    wishes: wishes
+                };
+
+                await fetch(WEDDING_API_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Tránh CORS preflight với Google Apps Script
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                showToast(`Cảm ơn ${name} đã gửi xác nhận và lời chúc mừng!`);
+            } catch (err) {
+                console.error("Lỗi gửi dữ liệu lên Google Sheets:", err);
+                showToast(`Cảm ơn ${name} đã gửi lời chúc!`);
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnHtml;
+                }
+                document.getElementById('rsvpForm').reset();
+            }
         }
 
         function escapeHtml(string) {
             return String(string).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // Tự động tải lời chúc từ Google Sheet khi vào web
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => loadWishesFromGoogleSheet());
+        } else {
+            loadWishesFromGoogleSheet();
         }
 
         /* =========================================================================
