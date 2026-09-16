@@ -748,50 +748,127 @@
              ========================================================================= -->
         <div class="wedding-desktop-row grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
 
-            <!-- CARD 3: ĐỒNG HỒ ĐẾM NGƯỢC VỚI VÒNG HOA TẢ THỰC XANH DƯƠNG SIÊU ĐẸP -->
+            <!-- CARD 3: ĐỒNG HỒ ĐẾM NGƯỢC VỚI VÒNG HOA TẢ THỰC & LỊCH TRÌNH TIỆC CƯỚI -->
             <section id="dem-nguoc"
-                class="card-paper rounded-3xl overflow-hidden text-center py-6 px-6 h-full flex flex-col justify-between">
+                class="card-paper rounded-3xl overflow-hidden text-center pt-6 pb-0 h-full flex flex-col justify-between">
 
-                <div>
-                    <!-- VÒNG HOA CƯỚI TẢ THỰC CAO CẤP MÀU XANH DƯƠNG (BOTANICAL BLUE FLORAL WREATH) -->
-                    <div class="relative w-44 h-44 mx-auto mb-3 flex items-center justify-center">
+                <svg class="absolute top-2 left-2 w-10 h-10 pointer-events-none z-20" viewBox="0 0 50 50" fill="none">
+                    <path d="M2 2 L38 2 M2 2 L2 38" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="12" cy="12" r="4" fill="#1d4ed8" stroke="#d4af37" stroke-width="1"/>
+                </svg>
+                <svg class="absolute top-2 right-2 w-10 h-10 pointer-events-none z-20 -scale-x-100" viewBox="0 0 50 50" fill="none">
+                    <path d="M2 2 L38 2 M2 2 L2 38" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="12" cy="12" r="4" fill="#1d4ed8" stroke="#d4af37" stroke-width="1"/>
+                </svg>
+
+                <div class="px-5 sm:px-6">
+                    <!-- VÒNG HOA CƯỚI TẢ THỰC CAO CẤP MÀU XANH DƯƠNG -->
+                    <div class="relative w-36 h-36 sm:w-40 sm:h-40 mx-auto mb-2 flex items-center justify-center">
                         <img src="assets/blue_floral_wreath.jpg" alt="Vòng hoa cưới màu xanh dương tả thực"
                             class="w-full h-full object-contain mix-blend-multiply drop-shadow-md animate-spin-slow paused-spin hover:scale-105 transition-transform duration-500" />
                         <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-                            <div class="w-12 h-12 rounded-full theme-bg-soft flex items-center justify-center theme-text-accent shadow-md border border-blue-300">
-                                <i class="fa-regular fa-hourglass-half text-lg"></i>
+                            <div class="w-11 h-11 rounded-full theme-bg-soft flex items-center justify-center theme-text-accent shadow-md border border-blue-300">
+                                <i class="fa-regular fa-hourglass-half text-base"></i>
                             </div>
                         </div>
                     </div>
 
-                    <h3 class="font-wedding text-2xl sm:text-3xl font-bold text-stone-800">Cùng Đếm Ngược Thời Gian</h3>
-                    <p class="font-cormorant italic text-sm text-stone-600 mb-5">Đến ngày hạnh phúc tròn đầy</p>
+                    <span class="font-cormorant text-xs sm:text-sm uppercase tracking-widest text-blue-900 block font-bold">Thời Khắc Trọng Đại</span>
+                    <h3 class="font-wedding text-2xl sm:text-3xl font-bold text-stone-800 my-0.5">Cùng Đếm Ngược Thời Gian</h3>
+                    <p class="font-cormorant italic text-xs sm:text-sm text-stone-600 mb-4">Đến ngày hạnh phúc viên mãn tròn đầy</p>
 
-                    <!-- Khối đếm ngược -->
-                    <div class="grid grid-cols-4 gap-2.5 max-w-sm mx-auto mb-5">
-                        <div class="theme-bg-soft border rounded-2xl py-3.5 px-1 shadow-md border-blue-300">
+                    <!-- Khối đếm ngược 4 ô -->
+                    <div class="grid grid-cols-4 gap-2 max-w-sm mx-auto mb-5">
+                        <div class="theme-bg-soft border rounded-2xl py-3 px-1 shadow-md border-blue-300 hover:scale-105 transition">
                             <span id="countdownDays" class="font-serif text-2xl sm:text-3xl font-bold theme-text-accent block leading-tight">00</span>
-                            <span class="text-[10px] uppercase font-bold tracking-wider text-blue-900 mt-1 block font-sans">NGÀY</span>
+                            <span class="text-[9px] uppercase font-bold tracking-wider text-blue-900 mt-0.5 block font-sans">NGÀY</span>
                         </div>
-                        <div class="theme-bg-soft border rounded-2xl py-3.5 px-1 shadow-md border-blue-300">
+                        <div class="theme-bg-soft border rounded-2xl py-3 px-1 shadow-md border-blue-300 hover:scale-105 transition">
                             <span id="countdownHours" class="font-serif text-2xl sm:text-3xl font-bold theme-text-accent block leading-tight">00</span>
-                            <span class="text-[10px] uppercase font-bold tracking-wider text-blue-900 mt-1 block font-sans">GIỜ</span>
+                            <span class="text-[9px] uppercase font-bold tracking-wider text-blue-900 mt-0.5 block font-sans">GIỜ</span>
                         </div>
-                        <div class="theme-bg-soft border rounded-2xl py-3.5 px-1 shadow-md border-blue-300">
+                        <div class="theme-bg-soft border rounded-2xl py-3 px-1 shadow-md border-blue-300 hover:scale-105 transition">
                             <span id="countdownMinutes" class="font-serif text-2xl sm:text-3xl font-bold theme-text-accent block leading-tight">00</span>
-                            <span class="text-[10px] uppercase font-bold tracking-wider text-blue-900 mt-1 block font-sans">PHÚT</span>
+                            <span class="text-[9px] uppercase font-bold tracking-wider text-blue-900 mt-0.5 block font-sans">PHÚT</span>
                         </div>
-                        <div class="theme-bg-soft border rounded-2xl py-3.5 px-1 shadow-md border-blue-300">
+                        <div class="theme-bg-soft border rounded-2xl py-3 px-1 shadow-md border-blue-300 hover:scale-105 transition">
                             <span id="countdownSeconds" class="font-serif text-2xl sm:text-3xl font-bold theme-text-accent block leading-tight">00</span>
-                            <span class="text-[10px] uppercase font-bold tracking-wider text-blue-900 mt-1 block font-sans">GIÂY</span>
+                            <span class="text-[9px] uppercase font-bold tracking-wider text-blue-900 mt-0.5 block font-sans">GIÂY</span>
                         </div>
+                    </div>
+
+                    <!-- LỊCH TRÌNH TIỆC CƯỚI (WEDDING TIMELINE) -->
+                    <div class="my-4 pt-3 border-t border-blue-200/90 text-left">
+                        <div class="flex items-center justify-between mb-3 px-1">
+                            <span class="text-xs sm:text-sm font-bold text-blue-950 font-cormorant tracking-wider uppercase flex items-center gap-1.5">
+                                <i class="fa-solid fa-clock-rotate-left text-blue-600"></i>
+                                <span>Lịch Trình Ngày Vui (07/11/2026)</span>
+                            </span>
+                            <span class="text-[10px] text-blue-700 bg-blue-100/80 px-2 py-0.5 rounded-full font-semibold">Thứ Bảy</span>
+                        </div>
+
+                        <div class="space-y-2.5 relative before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-[2px] before:bg-blue-200">
+                            <!-- Mốc 1 -->
+                            <div class="flex items-start gap-3 relative">
+                                <div class="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold shadow-md z-10 flex-shrink-0 border-2 border-white">
+                                    <i class="fa-solid fa-church text-[11px]"></i>
+                                </div>
+                                <div class="bg-blue-50/80 border border-blue-200 rounded-xl p-2.5 flex-1 shadow-sm">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-xs text-blue-950 font-wedding">09:00 • Lễ Thành Hôn</span>
+                                        <span class="text-[10px] text-blue-700 font-semibold bg-white px-2 py-0.5 rounded border border-blue-200">Tin Lành An Hữu</span>
+                                    </div>
+                                    <p class="text-[11px] text-stone-600 mt-0.5 font-sans">Nghi thức hôn lễ cử hành thiêng liêng</p>
+                                </div>
+                            </div>
+
+                            <!-- Mốc 2 -->
+                            <div class="flex items-start gap-3 relative">
+                                <div class="w-9 h-9 rounded-full bg-sky-500 text-white flex items-center justify-center text-xs font-bold shadow-md z-10 flex-shrink-0 border-2 border-white">
+                                    <i class="fa-solid fa-camera-retro text-[11px]"></i>
+                                </div>
+                                <div class="bg-sky-50/70 border border-sky-200 rounded-xl p-2.5 flex-1 shadow-sm">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-xs text-blue-950 font-wedding">11:00 • Đón Khách Mời</span>
+                                        <span class="text-[10px] text-sky-800 font-semibold bg-white px-2 py-0.5 rounded border border-sky-200">Tư Gia Đồng Tháp</span>
+                                    </div>
+                                    <p class="text-[11px] text-stone-600 mt-0.5 font-sans">Chụp hình check-in lưu niệm &amp; đón chào quý khách</p>
+                                </div>
+                            </div>
+
+                            <!-- Mốc 3 -->
+                            <div class="flex items-start gap-3 relative">
+                                <div class="w-9 h-9 rounded-full bg-amber-500 text-white flex items-center justify-center text-xs font-bold shadow-md z-10 flex-shrink-0 border-2 border-white">
+                                    <i class="fa-solid fa-champagne-glasses text-[11px]"></i>
+                                </div>
+                                <div class="bg-amber-50/70 border border-amber-200 rounded-xl p-2.5 flex-1 shadow-sm">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-xs text-stone-900 font-wedding">11:30 • Khai Tiệc Mừng Cưới</span>
+                                        <span class="text-[10px] text-amber-800 font-semibold bg-white px-2 py-0.5 rounded border border-amber-200">Khai Tiệc</span>
+                                    </div>
+                                    <p class="text-[11px] text-stone-600 mt-0.5 font-sans">Nâng ly chúc phúc &amp; thưởng thức tiệc thân mật</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- THÔNG ĐIỆP TÌNH YÊU & GHI CHÚ TRÂN TRỌNG -->
+                    <div class="bg-gradient-to-r from-blue-50/90 via-sky-50/90 to-blue-50/90 border border-blue-200/90 rounded-2xl p-3 my-3 shadow-inner text-center">
+                        <p class="font-cormorant italic text-xs sm:text-sm text-blue-950 font-semibold leading-relaxed">
+                            "Nguyện tình yêu là sợi dây liên kết trọn lành, cùng nhau đồng hành qua bao mùa mưa nắng."
+                        </p>
+                        <p class="text-[10px] text-stone-500 uppercase tracking-widest mt-1 font-serif">Võ Lê Thiên Phú &amp; Nguyễn Thị Thu Hiền</p>
                     </div>
                 </div>
 
-                <div class="inline-flex items-center justify-center gap-1.5 text-xs sm:text-sm text-blue-950 bg-blue-50 px-4 py-2 rounded-full border border-blue-300 shadow-sm font-cormorant max-w-md mx-auto">
-                    <i class="fa-solid fa-sparkles text-blue-600"></i>
-                    <span class="font-semibold">Hẹn gặp bạn vào ngày 07/11/2026 tại Tư Gia (Đồng Tháp) nhé!</span>
+                <div class="px-4 pb-4">
+                    <div class="inline-flex items-center justify-center gap-1.5 text-xs text-blue-950 bg-blue-50/90 px-4 py-2 rounded-full border border-blue-300 shadow-sm font-cormorant w-full">
+                        <i class="fa-solid fa-sparkles text-blue-600"></i>
+                        <span class="font-semibold">Hân hạnh được đón tiếp Quý Khách vào ngày 07/11/2026!</span>
+                    </div>
                 </div>
+
+                <div class="vintage-tile-border mt-auto w-full"></div>
             </section>
 
             <!-- CARD 4: PHOTO GALLERY ẢNH CƯỚI -->
