@@ -9,11 +9,11 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts: Great Vibes, Alex Brush, Parisienne, Cormorant Garamond, Playfair Display, Be Vietnam Pro -->
+    <!-- Google Fonts: Cormorant Garamond, Playfair Display, EB Garamond, Cinzel, Be Vietnam Pro (Chuẩn phông chữ thiệp cưới sang trọng) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Great+Vibes&family=Parisienne&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Pinyon+Script&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@500;600;700;800&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap"
         rel="stylesheet">
 
     <!-- FontAwesome 6 Icons -->
@@ -40,13 +40,14 @@
                     },
                     fontFamily: {
                         sans: ['"Be Vietnam Pro"', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif'],
-                        script: ['"Alex Brush"', 'cursive'],
-                        calligraphy: ['"Great Vibes"', '"Alex Brush"', 'cursive'],
-                        parisienne: ['"Parisienne"', '"Alex Brush"', 'cursive'],
-                        cormorant: ['"Cormorant Garamond"', '"Playfair Display"', 'serif'],
-                        pinyon: ['"Pinyon Script"', 'cursive'],
-                        cinzel: ['"Cinzel Decorative"', 'serif']
+                        serif: ['"Cormorant Garamond"', '"Playfair Display"', '"Times New Roman"', 'serif'],
+                        wedding: ['"Cormorant Garamond"', '"Playfair Display"', '"Times New Roman"', 'serif'],
+                        script: ['"Cormorant Garamond"', '"Playfair Display"', 'serif'],
+                        calligraphy: ['"Cormorant Garamond"', '"Playfair Display"', '"Times New Roman"', 'serif'],
+                        parisienne: ['"Cormorant Garamond"', '"Playfair Display"', '"Times New Roman"', 'serif'],
+                        cormorant: ['"Cormorant Garamond"', '"Playfair Display"', '"Times New Roman"', 'serif'],
+                        pinyon: ['"Cormorant Garamond"', '"Playfair Display"', 'serif'],
+                        cinzel: ['"Cinzel"', '"Cinzel Decorative"', 'serif']
                     }
                 }
             }
@@ -61,14 +62,24 @@
             --primary-border: #bfdbfe;
         }
 
+        .font-wedding {
+            font-family: 'Cormorant Garamond', 'Playfair Display', 'Times New Roman', serif;
+            letter-spacing: 0.02em;
+        }
         .font-calligraphy {
-            font-family: 'Great Vibes', 'Alex Brush', cursive;
+            font-family: 'Cormorant Garamond', 'Playfair Display', 'Times New Roman', serif;
+            letter-spacing: 0.02em;
         }
         .font-parisienne {
-            font-family: 'Parisienne', 'Alex Brush', cursive;
+            font-family: 'Cormorant Garamond', 'Playfair Display', 'Times New Roman', serif;
+            letter-spacing: 0.03em;
         }
         .font-cormorant {
-            font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', 'Playfair Display', 'Times New Roman', serif;
+        }
+        .font-cinzel {
+            font-family: 'Cinzel', 'Cormorant Garamond', 'Times New Roman', serif;
+            letter-spacing: 0.06em;
         }
 
         /* THEME 1: XANH SAPPHIRE QUÝ PHÁI (Sapphire Blue & White) */
@@ -349,10 +360,10 @@
                                 <span class="w-2.5 h-4 bg-blue-600 rounded-full"></span>
                                 <span class="w-1.5 h-3 bg-sky-400 rounded-full"></span>
                             </div>
-                            <p class="text-[8px] text-center font-bold text-blue-700 uppercase tracking-wider">THIỆP BÁO HỶ</p>
-                            <p class="text-[12px] text-center font-calligraphy text-blue-900 mt-1 font-bold truncate">Thiên Phú</p>
-                            <p class="text-[9px] text-center text-amber-500 font-bold">囍</p>
-                            <p class="text-[12px] text-center font-calligraphy text-blue-900 font-bold truncate">Thu Hiền</p>
+                            <p class="text-[8px] text-center font-bold text-blue-700 uppercase tracking-widest font-cormorant">THIỆP BÁO HỶ</p>
+                            <p class="text-[13px] text-center font-wedding font-bold text-blue-950 mt-0.5 truncate tracking-wide">Thiên Phú</p>
+                            <p class="text-[9px] text-center text-amber-500 font-bold leading-tight">囍</p>
+                            <p class="text-[13px] text-center font-wedding font-bold text-blue-950 truncate tracking-wide">Thu Hiền</p>
                             <p class="text-[7px] text-center text-stone-500 mt-1 font-serif">Lễ Thành Hôn • 07/11/2026</p>
                         </div>
                         <div class="vintage-tile-border w-full h-3"></div>
@@ -371,7 +382,7 @@
                                 </div>
                             </div>
                             <p class="text-[8px] text-center text-stone-500 font-serif">Trân Trọng Kính Mời</p>
-                            <p class="text-[11px] text-center font-cormorant font-bold text-blue-800 truncate">Tư Gia (Đồng Tháp)</p>
+                            <p class="text-[11px] text-center font-wedding font-bold text-blue-800 truncate">Tư Gia (Đồng Tháp)</p>
                             <div class="flex justify-center gap-1 my-1">
                                 <span class="text-[8px] bg-blue-700 text-white px-2 py-0.5 rounded font-bold">07/11/2026</span>
                             </div>
@@ -383,14 +394,14 @@
                 </div>
 
                 <!-- Thẻ 3: Gallery Ảnh Cưới (Nằm giữa) -->
-                <div onclick="scrollToSection('gallery')"
+                <div onclick="openLightbox(0)"
                     class="absolute left-[47%] sm:left-[48%] top-3 w-36 sm:w-48 h-52 sm:h-64 bg-white rounded-2xl border-2 border-blue-300 shadow-xl p-2.5 cursor-pointer transition-all duration-300 transform rotate-1 hover:rotate-0 hover:scale-110 hover:z-50 hover:shadow-2xl hover:border-blue-500 overflow-hidden text-left group">
                     <div class="w-full h-full flex flex-col justify-between border border-blue-200/80 rounded-xl p-2 bg-blue-50/25">
                         <div>
-                            <p class="text-[9px] text-center font-calligraphy text-stone-700 font-bold">Photo Gallery</p>
+                            <p class="text-[9px] text-center font-cormorant tracking-wider uppercase text-stone-700 font-bold">Photo Gallery</p>
                             <div class="w-full h-24 sm:h-28 rounded-lg overflow-hidden mt-1 border border-blue-200 shadow-sm">
-                                <img src="./pic1.jpg"
-                                    onerror="this.src='./assets/pic1.jpg'"
+                                <img src="./assets/pic1.jpg"
+                                    onerror="this.src='./pic1.jpg'"
                                     class="w-full h-full object-cover object-top" alt="Mini Gallery" />
                             </div>
                             <div class="grid grid-cols-3 gap-1 mt-1.5">
@@ -563,14 +574,14 @@
                             <i class="fa-solid fa-feather text-blue-600 text-xs"></i>
                             <span class="w-16 h-[1.5px] bg-gradient-to-l from-transparent via-blue-400 to-blue-700"></span>
                         </div>
-                        <p class="font-parisienne text-2xl text-blue-900 font-semibold tracking-wide">Trân Trọng Báo Tin</p>
-                        <p class="text-sm font-cormorant font-bold text-stone-800 mt-0.5 tracking-wider uppercase">LỄ THÀNH HÔN CỦA CON CHÚNG TÔI</p>
+                        <p class="font-cormorant text-xl sm:text-2xl text-blue-900 font-bold tracking-widest uppercase">Trân Trọng Báo Tin</p>
+                        <p class="text-xs sm:text-sm font-cormorant font-semibold text-stone-700 mt-0.5 tracking-wider uppercase">LỄ THÀNH HÔN CỦA CON CHÚNG TÔI</p>
                     </div>
 
-                    <!-- Tên Chú Rể & Cô Dâu Font Thư Pháp -->
+                    <!-- Tên Chú Rể & Cô Dâu Font Thiệp Cưới Sang Trọng -->
                     <div class="my-5 px-4 relative">
                         <div class="transition-transform hover:scale-105 duration-300">
-                            <h2 class="font-calligraphy text-4xl sm:text-5xl font-bold theme-text-accent tracking-wide drop-shadow-sm py-0.5">Võ Lê Thiên Phú</h2>
+                            <h2 class="font-wedding text-3xl sm:text-4xl lg:text-5xl font-bold theme-text-accent tracking-wide drop-shadow-sm py-0.5">Võ Lê Thiên Phú</h2>
                             <span class="inline-block text-[11px] text-blue-900 font-serif font-semibold mt-0.5 tracking-widest uppercase bg-blue-50 px-3.5 py-0.5 rounded-full border border-blue-200 shadow-sm">Trưởng Nam</span>
                         </div>
 
@@ -598,13 +609,13 @@
                         </div>
 
                         <div class="transition-transform hover:scale-105 duration-300">
-                            <h2 class="font-calligraphy text-4xl sm:text-5xl font-bold theme-text-accent tracking-wide drop-shadow-sm py-0.5">Nguyễn Thị Thu Hiền</h2>
+                            <h2 class="font-wedding text-3xl sm:text-4xl lg:text-5xl font-bold theme-text-accent tracking-wide drop-shadow-sm py-0.5">Nguyễn Thị Thu Hiền</h2>
                             <span class="inline-block text-[11px] text-blue-900 font-serif font-semibold mt-0.5 tracking-widest uppercase bg-blue-50 px-3.5 py-0.5 rounded-full border border-blue-200 shadow-sm">Út Nữ</span>
                         </div>
                     </div>
 
                     <!-- Thời gian & Địa điểm cử hành hôn lễ (Nhà Thờ Tin Lành An Hữu) -->
-                    <div class="px-5 pb-5 text-stone-700 text-xs space-y-1.5 theme-bg-soft py-4 mx-4 rounded-2xl border relative overflow-hidden shadow-inner mb-4">
+                    <div class="px-5 pb-5 text-stone-700 text-xs space-y-1.5 theme-bg-soft py-4 mx-4 rounded-2xl border relative overflow-hidden shadow-inner mb-2">
                         <p class="text-blue-900 font-cormorant italic text-sm sm:text-base font-semibold">Hôn Lễ Được Cử Hành Tại</p>
                         <p class="text-base sm:text-lg font-bold font-cormorant text-blue-950 tracking-wider">NHÀ THỜ TIN LÀNH AN HỮU</p>
                         <p class="text-[11px] sm:text-xs text-stone-600 font-cormorant">(Số 2, QL1A, Ấp 1, An Hữu, Đồng Tháp, Việt Nam)</p>
@@ -615,6 +626,14 @@
                                 class="font-bold theme-text-accent text-lg">2026</span>
                         </p>
                         <p class="text-xs text-blue-800 font-cormorant italic font-semibold">(Nhằm ngày 29 tháng 09 năm Bính Ngọ)</p>
+                    </div>
+
+                    <!-- Nút xem bản in thiệp báo hỷ gốc -->
+                    <div class="pb-3 text-center">
+                        <button type="button" onclick="openLightbox(5)"
+                            class="inline-flex items-center gap-1.5 text-xs text-blue-800 hover:text-blue-950 bg-blue-50/90 hover:bg-blue-100 border border-blue-300 px-3.5 py-1.5 rounded-full shadow-sm transition font-medium cursor-pointer">
+                            <i class="fa-solid fa-expand text-blue-600"></i> Xem bản in thiệp báo hỷ gốc (Full HD)
+                        </button>
                     </div>
                 </div>
 
@@ -652,7 +671,7 @@
                     <div class="pt-6 px-6">
                         <div class="flex items-center justify-center gap-2 mb-1">
                             <i class="fa-solid fa-leaf text-blue-600 text-xs"></i>
-                            <p class="font-parisienne text-2xl text-blue-900 font-semibold tracking-wide">Trân Trọng Kính Mời</p>
+                            <p class="font-cormorant text-xl sm:text-2xl text-blue-900 font-bold tracking-widest uppercase">Trân Trọng Kính Mời</p>
                             <i class="fa-solid fa-leaf text-blue-600 text-xs -scale-x-100"></i>
                         </div>
 
@@ -665,7 +684,7 @@
 
                         <!-- Tên Địa điểm Tư Gia -->
                         <div class="my-4">
-                            <h3 class="font-cormorant text-3xl sm:text-4xl font-bold theme-text-accent tracking-wide">Tư Gia</h3>
+                            <h3 class="font-wedding text-3xl sm:text-4xl font-bold theme-text-accent tracking-wide">Tư Gia</h3>
                             <p class="text-xs sm:text-sm font-cormorant font-bold text-blue-900 mt-0.5 tracking-wider uppercase">268 TỔ 8, ẤP AN LẠC, XÃ MỸ LỢI</p>
                             <p class="text-[11px] sm:text-xs text-stone-500 mt-1 font-cormorant">Tỉnh Đồng Tháp</p>
                         </div>
@@ -704,11 +723,16 @@
                             MỸ DUNG <span class="font-serif italic text-xs lowercase font-normal">Kính</span>
                         </p>
 
-                        <div class="mt-4 pb-4 flex justify-center gap-2">
+                        <div class="mt-4 pb-4 flex flex-wrap items-center justify-center gap-2">
                             <button id="addToCalendarBtn"
-                                class="text-xs sm:text-sm bg-gradient-to-r from-blue-50 via-sky-100 to-blue-50 border border-blue-400 text-blue-950 font-semibold px-5 py-2.5 rounded-full flex items-center gap-2 hover:bg-blue-200 transition shadow-sm cursor-pointer">
+                                class="text-xs sm:text-sm bg-gradient-to-r from-blue-50 via-sky-100 to-blue-50 border border-blue-400 text-blue-950 font-semibold px-4 sm:px-5 py-2.5 rounded-full flex items-center gap-2 hover:bg-blue-200 transition shadow-sm cursor-pointer">
                                 <i class="fa-regular fa-calendar-plus text-blue-700"></i>
                                 <span>Thêm vào Lịch nhắc nhở</span>
+                            </button>
+                            <button type="button" onclick="openLightbox(6)"
+                                class="text-xs sm:text-sm bg-blue-50/90 hover:bg-blue-100 border border-blue-300 text-blue-900 font-semibold px-4 py-2.5 rounded-full flex items-center gap-1.5 transition shadow-sm cursor-pointer">
+                                <i class="fa-solid fa-expand text-blue-700"></i>
+                                <span>Xem bản in thiệp gốc</span>
                             </button>
                         </div>
                     </div>
@@ -740,7 +764,7 @@
                         </div>
                     </div>
 
-                    <h3 class="font-calligraphy text-3xl sm:text-4xl font-bold text-stone-800">Mình cùng đếm ngược Thời Gian</h3>
+                    <h3 class="font-wedding text-2xl sm:text-3xl font-bold text-stone-800">Cùng Đếm Ngược Thời Gian</h3>
                     <p class="font-cormorant italic text-sm text-stone-600 mb-5">Đến ngày hạnh phúc tròn đầy</p>
 
                     <!-- Khối đếm ngược -->
@@ -785,49 +809,79 @@
 
                 <div>
                     <div class="pt-6 px-6 pb-2">
-                        <span class="font-parisienne text-2xl text-blue-900 block font-semibold">Khoảnh Khắc Ngọt Ngào</span>
-                        <h3 class="font-calligraphy text-4xl sm:text-5xl font-bold text-stone-800 my-1">Photo Gallery</h3>
+                        <span class="font-cormorant text-xs sm:text-sm uppercase tracking-widest text-blue-900 block font-bold">Khoảnh Khắc Kỷ Niệm</span>
+                        <h3 class="font-wedding text-3xl sm:text-4xl font-bold text-stone-800 my-1">Photo Gallery</h3>
                         <p class="font-cormorant italic text-xs sm:text-sm text-stone-500">Những thước ảnh kỷ niệm tình yêu của chúng mình</p>
                     </div>
 
                     <!-- Ảnh lớn nổi bật -->
                     <div class="relative group cursor-pointer mt-3 overflow-hidden border-y border-blue-200" onclick="openLightbox(0)">
-                        <img src="./pic1.jpg"
+                        <img src="./assets/pic1.jpg"
                             alt="Ảnh cưới Thiên Phú & Thu Hiền"
                             class="w-full h-64 sm:h-72 object-cover object-top group-hover:scale-105 transition duration-500"
-                            onerror="this.src='./assets/pic1.jpg'" />
+                            onerror="this.src='./pic1.jpg'" />
                         <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent flex items-end justify-center pb-4 text-white">
-                            <span class="text-xs font-medium flex items-center gap-1.5 bg-stone-900/50 backdrop-blur-md px-4 py-1.5 rounded-full border border-sky-300/70 text-sky-100">
-                                <i class="fa-solid fa-expand text-sky-300"></i> Chạm để phóng to ảnh
+                            <span class="text-xs font-medium flex items-center gap-1.5 bg-stone-900/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-sky-300/70 text-sky-100 shadow-md">
+                                <i class="fa-solid fa-expand text-sky-300"></i> Chạm để phóng to ảnh HD
                             </span>
                         </div>
                     </div>
 
-                    <!-- Lưới ảnh nhỏ -->
+                    <!-- Lưới ảnh kỷ niệm -->
                     <div class="p-3.5 grid grid-cols-3 gap-2.5">
                         <div class="relative aspect-square rounded-xl overflow-hidden cursor-pointer group border border-blue-200 shadow-sm"
                             onclick="openLightbox(1)">
-                            <img src="./pic2.jpg"
+                            <img src="./assets/pic2.jpg"
                                 alt="Ảnh cưới 2"
                                 class="w-full h-full object-cover object-top group-hover:scale-110 transition duration-300"
-                                onerror="this.src='./assets/pic2.jpg'" />
+                                onerror="this.src='./pic2.jpg'" />
                         </div>
                         <div class="relative aspect-square rounded-xl overflow-hidden cursor-pointer group border border-blue-200 shadow-sm"
                             onclick="openLightbox(2)">
-                            <img src="./pic3.jpg"
+                            <img src="./assets/pic3.jpg"
                                 alt="Ảnh cưới 3"
                                 class="w-full h-full object-cover object-top group-hover:scale-110 transition duration-300"
-                                onerror="this.src='./assets/pic3.jpg'" />
+                                onerror="this.src='./pic3.jpg'" />
                         </div>
                         <div class="relative aspect-square rounded-xl overflow-hidden cursor-pointer group border border-blue-200 shadow-sm"
                             onclick="openLightbox(3)">
-                            <img src="./pic4.jpg"
+                            <img src="./assets/pic4.jpg"
                                 alt="Ảnh cưới 4"
                                 class="w-full h-full object-cover object-top group-hover:scale-110 transition duration-300"
-                                onerror="this.src='./assets/pic4.jpg'" />
+                                onerror="this.src='./pic4.jpg'" />
                         </div>
                     </div>
-                </div>
+
+                    <!-- Lưới bản in thiệp cưới chính thức -->
+                    <div class="px-3.5 pb-2">
+                        <div class="flex items-center justify-between py-2 border-t border-blue-100 mt-1">
+                            <span class="text-[11px] font-bold text-blue-950 font-cormorant tracking-wider uppercase flex items-center gap-1.5">
+                                <i class="fa-solid fa-envelope-open-text text-blue-600"></i>
+                                <span>Bản in thiệp cưới chính thức</span>
+                            </span>
+                            <span class="text-[10px] text-blue-700 font-sans font-medium">Chạm phóng to HD</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer group border border-amber-300/80 shadow-sm bg-stone-50"
+                                onclick="openLightbox(4)" title="Bì thư thiệp cưới">
+                                <img src="./assets/thiep_bi_thu_print.jpg" alt="Bì thư thiệp cưới"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                                <div class="absolute bottom-0 inset-x-0 bg-stone-900/60 text-white text-[9px] py-0.5 font-medium">Bì Thư</div>
+                            </div>
+                            <div class="relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer group border border-blue-300 shadow-sm bg-stone-50"
+                                onclick="openLightbox(5)" title="Thiệp Báo Hỷ">
+                                <img src="./assets/thiep_bao_hy_print.jpg" alt="Thiệp Báo Hỷ"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                                <div class="absolute bottom-0 inset-x-0 bg-blue-900/70 text-white text-[9px] py-0.5 font-medium">Báo Hỷ</div>
+                            </div>
+                            <div class="relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer group border border-blue-300 shadow-sm bg-stone-50"
+                                onclick="openLightbox(6)" title="Thiệp Mời Tiệc">
+                                <img src="./assets/thiep_moi_print.jpg" alt="Thiệp Mời Tiệc"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                                <div class="absolute bottom-0 inset-x-0 bg-blue-900/70 text-white text-[9px] py-0.5 font-medium">Mời Tiệc</div>
+                            </div>
+                        </div>
+                    </div>
 
                 <div class="vintage-tile-border mt-auto w-full"></div>
             </section>
@@ -855,11 +909,11 @@
                 <div>
                     <div class="flex items-center justify-center gap-2 mb-1">
                         <i class="fa-solid fa-gift text-blue-600 text-xs"></i>
-                        <p class="font-parisienne text-xl uppercase font-bold tracking-wider theme-text-accent">Hộp Mừng Cưới &amp; Liên Hệ</p>
+                        <p class="font-cormorant text-base sm:text-lg uppercase font-bold tracking-widest theme-text-accent">Hộp Mừng Cưới &amp; Liên Hệ</p>
                         <i class="fa-solid fa-gift text-blue-600 text-xs"></i>
                     </div>
 
-                    <h3 class="font-calligraphy text-3xl sm:text-4xl font-bold text-stone-800 my-1">Thông Tin Chú Rể &amp; Cô Dâu</h3>
+                    <h3 class="font-wedding text-3xl sm:text-4xl font-bold text-stone-800 my-1">Thông Tin Chú Rể &amp; Cô Dâu</h3>
                     <p class="text-xs text-stone-500 max-w-xs mx-auto px-4 font-cormorant italic">
                         Nếu quý khách không thể đến chung vui hoặc muốn gửi quà mừng cưới từ xa
                     </p>
@@ -881,7 +935,7 @@
                                     <circle cx="40" cy="37" r="2.5" fill="#bfdbfe" />
                                 </svg>
                             </div>
-                            <span class="font-calligraphy text-2xl font-bold text-stone-800">Võ Lê Thiên Phú</span>
+                            <span class="font-wedding text-2xl font-bold text-stone-900">Võ Lê Thiên Phú</span>
                             <span class="text-[11px] text-blue-900 font-serif font-semibold mb-3 uppercase tracking-wider">Trưởng Nam</span>
 
                             <a href="tel:0909123456"
@@ -908,7 +962,7 @@
                                     <circle cx="41" cy="38" r="2.5" fill="#bae6fd" />
                                 </svg>
                             </div>
-                            <span class="font-calligraphy text-2xl font-bold text-stone-800">Nguyễn Thị Thu Hiền</span>
+                            <span class="font-wedding text-2xl font-bold text-stone-900">Nguyễn Thị Thu Hiền</span>
                             <span class="text-[11px] text-sky-900 font-serif font-semibold mb-3 uppercase tracking-wider">Út Nữ</span>
 
                             <a href="tel:0909654321"
@@ -1010,10 +1064,10 @@
                     <div class="text-center mb-5">
                         <div class="flex items-center justify-center gap-2 mb-1">
                             <i class="fa-solid fa-heart theme-text-accent text-xs"></i>
-                            <span class="font-parisienne text-xl uppercase font-bold tracking-widest theme-text-accent">Phản Hồi &amp; Lời Chúc</span>
+                            <span class="font-cormorant text-base sm:text-lg uppercase font-bold tracking-widest theme-text-accent">Phản Hồi &amp; Lời Chúc</span>
                             <i class="fa-solid fa-heart theme-text-accent text-xs"></i>
                         </div>
-                        <h3 class="font-calligraphy text-3xl sm:text-4xl font-bold text-stone-800 my-1">Xác Nhận Tham Dự (RSVP)</h3>
+                        <h3 class="font-wedding text-3xl sm:text-4xl font-bold text-stone-800 my-1">Xác Nhận Tham Dự (RSVP)</h3>
                         <p class="text-xs text-stone-500 font-cormorant italic">Để dâu rể chuẩn bị đón tiếp chu đáo nhất nhé</p>
                     </div>
 
@@ -1113,9 +1167,9 @@
             <div class="px-6 mb-6 max-w-lg mx-auto">
                 <div class="bg-stone-950 text-white rounded-2xl p-3.5 flex items-center gap-3.5 shadow-md border border-sky-400/40">
                     <div class="relative w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 bg-stone-800 cursor-pointer" onclick="toggleMusicPlayback()">
-                        <img id="musicCoverImg" src="./pic1.jpg"
+                        <img id="musicCoverImg" src="./assets/pic1.jpg"
                             alt="Song cover" class="w-full h-full object-cover object-top"
-                            onerror="this.src='./assets/pic1.jpg'" />
+                            onerror="this.src='./pic1.jpg'" />
                         <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
                             <i class="fa-solid fa-music text-sm text-sky-300"></i>
                         </div>
@@ -1161,7 +1215,7 @@
 
             <!-- Chia sẻ thiệp -->
             <div class="px-6 py-2">
-                <h4 class="font-parisienne text-2xl font-bold text-stone-800 mb-3">Chia sẻ thiệp cưới</h4>
+                <h4 class="font-wedding text-2xl sm:text-3xl font-bold text-stone-800 mb-3">Chia Sẻ Thiệp Cưới</h4>
                 <div class="flex items-center justify-center gap-3 flex-wrap">
                     <button onclick="shareOnFacebook()"
                         class="px-4 py-2 bg-blue-600 text-white rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 hover:bg-blue-700 transition shadow-sm cursor-pointer">
@@ -1178,16 +1232,16 @@
                 </div>
             </div>
 
-            <!-- Lời cảm ơn & Chữ ký nghệ thuật uốn lượn theo đúng file PDF -->
+            <!-- Lời cảm ơn & Tên Dâu Rể font thiệp cưới trang trọng -->
             <div class="py-8 px-6 bg-blue-50/50 mt-6 border-t border-blue-200">
-                <span class="font-parisienne text-3xl text-blue-900 block font-semibold mb-1">Thank You</span>
+                <span class="font-wedding text-3xl sm:text-4xl text-blue-900 block font-bold tracking-wider mb-1">Thank You</span>
                 <p class="text-[11px] sm:text-xs font-serif font-bold text-blue-800 uppercase tracking-widest mb-3">FOR BEING A PART OF OUR SPECIAL DAY</p>
                 <p class="font-cormorant italic text-base sm:text-lg theme-text-accent font-medium leading-relaxed max-w-xl mx-auto">
                     "Cảm ơn sự hiện diện của Quý Khách trong ngày lễ trọng đại của gia đình chúng tôi. Khoảnh khắc này sẽ được lưu mãi cùng hạnh phúc của chúng tôi."
                 </p>
                 <div class="mt-5 flex flex-col items-center">
                     <span class="font-cormorant tracking-widest text-xs sm:text-sm uppercase text-blue-900 font-bold">Tân Lang &amp; Tân Nương</span>
-                    <span class="font-calligraphy text-5xl sm:text-6xl theme-text-accent mt-2 drop-shadow-md">Thiên Phú &amp; Thu Hiền</span>
+                    <span class="font-wedding text-4xl sm:text-5xl lg:text-6xl font-bold theme-text-accent mt-2 drop-shadow-sm tracking-wide">Thiên Phú &amp; Thu Hiền</span>
                 </div>
             </div>
 
@@ -1200,27 +1254,58 @@
 
     </div>
 
-    <!-- LIGHTBOX MODAL PHÓNG TO ẢNH CƯỚI -->
-    <div id="lightboxModal"
-        class="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm hidden flex-col items-center justify-center p-4">
-        <button onclick="closeLightbox()"
-            class="absolute top-5 right-5 text-white/80 hover:text-white text-2xl z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 cursor-pointer">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="relative max-w-3xl w-full max-h-[85vh] flex items-center justify-center">
-            <img id="lightboxImg" src="" alt="Phóng to ảnh cưới"
-                class="max-w-full max-h-[80vh] rounded-xl object-contain shadow-2xl border-2 border-amber-400/50" />
+    <!-- LIGHTBOX MODAL PHÓNG TO ẢNH CƯỚI & BẢN IN THIỆP CƯỚI -->
+    <div id="lightboxModal" onclick="handleLightboxBackdrop(event)"
+        class="fixed inset-0 z-50 bg-black/92 backdrop-blur-md hidden flex-col items-center justify-between p-3 sm:p-5 select-none transition-all duration-300">
+        
+        <!-- Header controls -->
+        <div class="w-full max-w-4xl flex items-center justify-between px-2 py-1 text-white z-20">
+            <div class="flex items-center gap-2.5">
+                <span id="lightboxCounter" class="text-xs bg-white/20 px-3 py-1 rounded-full font-mono font-bold tracking-wide">1 / 7</span>
+                <span id="lightboxCategory" class="text-xs text-amber-300 font-cormorant font-bold uppercase tracking-wider bg-amber-400/20 px-3 py-0.5 rounded-full border border-amber-400/30">Ảnh Cưới</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" id="lightboxZoomBtn" onclick="toggleLightboxZoom(event)" title="Phóng to / Thu nhỏ (Chạm vào ảnh)"
+                    class="w-10 h-10 rounded-full bg-white/15 hover:bg-white/25 active:scale-90 flex items-center justify-center transition cursor-pointer text-white border border-white/20">
+                    <i id="lightboxZoomIcon" class="fa-solid fa-magnifying-glass-plus text-sm"></i>
+                </button>
+                <button type="button" onclick="closeLightbox()" title="Đóng (Phím Esc)"
+                    class="w-10 h-10 rounded-full bg-white/15 hover:bg-red-500/80 active:scale-90 flex items-center justify-center transition cursor-pointer text-white text-lg border border-white/20">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
 
-            <button onclick="prevLightboxImage()"
-                class="absolute left-2 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/60 w-11 h-11 rounded-full flex items-center justify-center cursor-pointer">
-                <i class="fa-solid fa-chevron-left"></i>
+        <!-- Main Image Stage -->
+        <div id="lightboxImgWrapper" class="relative max-w-4xl w-full flex-1 flex items-center justify-center overflow-hidden my-auto p-2">
+            <div id="lightboxSpinner" class="hidden absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                <div class="w-10 h-10 border-3 border-amber-300/30 border-t-amber-400 rounded-full animate-spin"></div>
+            </div>
+
+            <img id="lightboxImg" src="" alt="Phóng to ảnh cưới"
+                onclick="toggleLightboxZoom(event)"
+                class="max-w-full max-h-[72vh] sm:max-h-[76vh] rounded-xl object-contain shadow-2xl border border-amber-400/30 transition-transform duration-300 cursor-zoom-in" />
+
+            <!-- Nav buttons -->
+            <button type="button" onclick="prevLightboxImage(event)" aria-label="Ảnh trước"
+                class="absolute left-1 sm:left-3 top-1/2 -translate-y-1/2 text-white bg-black/60 hover:bg-black/90 w-11 h-11 rounded-full flex items-center justify-center cursor-pointer transition shadow-xl border border-white/20 active:scale-90 z-20">
+                <i class="fa-solid fa-chevron-left text-base"></i>
             </button>
-            <button onclick="nextLightboxImage()"
-                class="absolute right-2 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/60 w-11 h-11 rounded-full flex items-center justify-center cursor-pointer">
-                <i class="fa-solid fa-chevron-right"></i>
+            <button type="button" onclick="nextLightboxImage(event)" aria-label="Ảnh kế tiếp"
+                class="absolute right-1 sm:right-3 top-1/2 -translate-y-1/2 text-white bg-black/60 hover:bg-black/90 w-11 h-11 rounded-full flex items-center justify-center cursor-pointer transition shadow-xl border border-white/20 active:scale-90 z-20">
+                <i class="fa-solid fa-chevron-right text-base"></i>
             </button>
         </div>
-        <div id="lightboxCaption" class="text-amber-200 text-sm mt-3 font-medium font-serif">Khoảnh khắc hạnh phúc</div>
+
+        <!-- Bottom bar: Caption & Instructions -->
+        <div class="w-full max-w-2xl text-center px-4 pt-2 pb-1 z-20">
+            <p id="lightboxCaption" class="text-amber-200 text-sm sm:text-base font-wedding font-semibold tracking-wide truncate drop-shadow">
+                Khoảnh khắc hạnh phúc
+            </p>
+            <p class="text-[11px] text-stone-300 mt-1 font-sans">
+                💡 <span class="hidden sm:inline">Dùng phím mũi tên hoặc </span>Chạm vào ảnh để phóng to/thu nhỏ • Vuốt để chuyển ảnh
+            </p>
+        </div>
     </div>
 
     <!-- MODAL MÃ QR CHUYỂN KHOẢN MỪNG CƯỚI -->
@@ -1685,56 +1770,186 @@
         }
 
         /* =========================================================================
-           8. GALLERY LIGHTBOX MODAL
+           8. GALLERY LIGHTBOX MODAL & INTERACTIVE IMAGE ZOOM
            ========================================================================= */
         const galleryImages = [
             {
-                src: "./pic1.jpg",
+                src: "./assets/pic1.jpg",
+                altSrc: "./pic1.jpg",
+                category: "Ảnh Cưới Kỷ Niệm",
                 caption: "Khoảnh khắc hạnh phúc của Võ Lê Thiên Phú & Nguyễn Thị Thu Hiền"
             },
             {
-                src: "./pic2.jpg",
-                caption: "Nụ cười rạng ngời của đôi uyên ương trong ngày vui"
+                src: "./assets/pic2.jpg",
+                altSrc: "./pic2.jpg",
+                category: "Ảnh Cưới Kỷ Niệm",
+                caption: "Nụ cười rạng ngời của đôi uyên ương trong ngày trọng đại"
             },
             {
-                src: "./pic3.jpg",
+                src: "./assets/pic3.jpg",
+                altSrc: "./pic3.jpg",
+                category: "Ảnh Cưới Kỷ Niệm",
                 caption: "Ánh mắt trao nhau trọn vẹn lời thề ước trăm năm"
             },
             {
-                src: "./pic4.jpg",
+                src: "./assets/pic4.jpg",
+                altSrc: "./pic4.jpg",
+                category: "Ảnh Cưới Kỷ Niệm",
                 caption: "Gắn kết yêu thương - Cùng nhau đi đến trọn cuộc đời"
+            },
+            {
+                src: "./assets/thiep_bi_thu_print.jpg",
+                altSrc: "./thiep_bi_thu_print.jpg",
+                category: "Bản In Thiệp Cưới",
+                caption: "Bì thư Thiệp cưới chính thức: Thiên Phú & Thu Hiền (07.11.2026)"
+            },
+            {
+                src: "./assets/thiep_bao_hy_print.jpg",
+                altSrc: "./thiep_bao_hy_print.jpg",
+                category: "Bản In Thiệp Cưới",
+                caption: "Bản in Thiệp Báo Hỷ & Lễ Thành Hôn tại Nhà Thờ Tin Lành An Hữu"
+            },
+            {
+                src: "./assets/thiep_moi_print.jpg",
+                altSrc: "./thiep_moi_print.jpg",
+                category: "Bản In Thiệp Cưới",
+                caption: "Bản in Thiệp Mời Tiệc Cưới Tư Gia (Ấp An Lạc, Xã Mỹ Lợi, Đồng Tháp)"
             }
         ];
 
         let currentLightboxIdx = 0;
+        let isLightboxZoomed = false;
 
         function openLightbox(index) {
-            currentLightboxIdx = index;
+            currentLightboxIdx = (index + galleryImages.length) % galleryImages.length;
+            isLightboxZoomed = false;
+
             const modal = document.getElementById('lightboxModal');
             const img = document.getElementById('lightboxImg');
             const caption = document.getElementById('lightboxCaption');
+            const counter = document.getElementById('lightboxCounter');
+            const category = document.getElementById('lightboxCategory');
+            const spinner = document.getElementById('lightboxSpinner');
+            const zoomIcon = document.getElementById('lightboxZoomIcon');
 
-            img.src = galleryImages[index].src;
-            caption.innerText = galleryImages[index].caption;
+            if (!modal || !img) return;
+
+            const current = galleryImages[currentLightboxIdx];
+
+            // Reset zoom state
+            img.style.transform = 'scale(1)';
+            img.classList.remove('cursor-zoom-out');
+            img.classList.add('cursor-zoom-in');
+            if (zoomIcon) {
+                zoomIcon.className = "fa-solid fa-magnifying-glass-plus text-sm";
+            }
+
+            if (spinner) spinner.classList.remove('hidden');
+
+            img.onload = function() {
+                if (spinner) spinner.classList.add('hidden');
+            };
+            img.onerror = function() {
+                if (spinner) spinner.classList.add('hidden');
+                if (current.altSrc && this.src !== current.altSrc) {
+                    this.src = current.altSrc;
+                }
+            };
+
+            img.src = current.src;
+            if (caption) caption.innerText = current.caption;
+            if (counter) counter.innerText = `${currentLightboxIdx + 1} / ${galleryImages.length}`;
+            if (category) category.innerText = current.category || 'Ảnh Cưới';
+
             modal.classList.remove('hidden');
             modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeLightbox() {
             const modal = document.getElementById('lightboxModal');
+            if (!modal) return;
             modal.classList.add('hidden');
             modal.classList.remove('flex');
+            document.body.style.overflow = '';
+            isLightboxZoomed = false;
         }
 
-        function prevLightboxImage() {
+        function handleLightboxBackdrop(e) {
+            if (e.target.id === 'lightboxModal' || e.target.id === 'lightboxImgWrapper') {
+                closeLightbox();
+            }
+        }
+
+        function toggleLightboxZoom(e) {
+            if (e) e.stopPropagation();
+            const img = document.getElementById('lightboxImg');
+            const zoomIcon = document.getElementById('lightboxZoomIcon');
+            if (!img) return;
+
+            isLightboxZoomed = !isLightboxZoomed;
+            if (isLightboxZoomed) {
+                img.style.transform = 'scale(1.75)';
+                img.classList.remove('cursor-zoom-in');
+                img.classList.add('cursor-zoom-out');
+                if (zoomIcon) zoomIcon.className = "fa-solid fa-magnifying-glass-minus text-sm";
+            } else {
+                img.style.transform = 'scale(1)';
+                img.classList.remove('cursor-zoom-out');
+                img.classList.add('cursor-zoom-in');
+                if (zoomIcon) zoomIcon.className = "fa-solid fa-magnifying-glass-plus text-sm";
+            }
+        }
+
+        function prevLightboxImage(e) {
+            if (e) e.stopPropagation();
             currentLightboxIdx = (currentLightboxIdx - 1 + galleryImages.length) % galleryImages.length;
             openLightbox(currentLightboxIdx);
         }
 
-        function nextLightboxImage() {
+        function nextLightboxImage(e) {
+            if (e) e.stopPropagation();
             currentLightboxIdx = (currentLightboxIdx + 1) % galleryImages.length;
             openLightbox(currentLightboxIdx);
         }
+
+        // Keyboard navigation (ESC to close, Left/Right arrow keys)
+        window.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('lightboxModal');
+            if (!modal || modal.classList.contains('hidden')) return;
+
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                prevLightboxImage();
+            } else if (e.key === 'ArrowRight') {
+                nextLightboxImage();
+            }
+        });
+
+        // Touch swipe gestures on mobile
+        (function() {
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const modal = document.getElementById('lightboxModal');
+            if (!modal) return;
+
+            modal.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            modal.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchEndX - touchStartX;
+                if (Math.abs(diff) > 50 && !isLightboxZoomed) {
+                    if (diff > 0) {
+                        prevLightboxImage();
+                    } else {
+                        nextLightboxImage();
+                    }
+                }
+            }, { passive: true });
+        })();
 
         /* =========================================================================
            9. XỬ LÝ RSVP & SỔ LƯU BÚT TRỰC TUYẾN
