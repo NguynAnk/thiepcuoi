@@ -971,17 +971,17 @@
                 <div class="lg:col-span-5 h-full flex flex-col">
                     <div class="relative w-full h-72 sm:h-96 lg:h-[440px] bg-stone-200 rounded-2xl overflow-hidden border border-blue-200 shadow-md">
                         <iframe title="Bản đồ dẫn đường đến Tư Gia Đồng Tháp" class="w-full h-full border-0"
-                            src="https://maps.google.com/maps?q=%E1%BA%A4p+An+L%E1%BA%A1c,+M%E1%BB%B9+L%E1%BB%A3i,+%C4%90%E1%BB%93ng+Th%C3%A1p&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                            src="https://maps.google.com/maps?q=10.331530570983887,105.91487121582031&t=&z=16&ie=UTF8&iwloc=&output=embed"
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
 
-                        <a href="https://www.google.com/maps/search/?api=1&query=268+T%E1%BB%95+8+%E1%BA%A4p+An+L%E1%BA%A1c+M%E1%BB%B9+L%E1%BB%A3i+%C4%90%E1%BB%93ng+Th%C3%A1p" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.google.com/maps/search/?api=1&query=10.331530570983887,105.91487121582031" target="_blank" rel="noopener noreferrer"
                             class="absolute bottom-3 right-3 bg-white/95 backdrop-blur text-stone-800 text-xs font-semibold px-4 py-2 rounded-full shadow-lg border border-blue-300 flex items-center gap-2 hover:bg-blue-50 transition">
                             <i class="fa-solid fa-diamond-turn-right theme-text-accent text-sm"></i>
-                            <span>Mở Google Map</span>
+                            <span>Mở Google Map Chỉ Đường</span>
                         </a>
                     </div>
-                    <p class="text-[11px] text-stone-500 mt-2 font-cormorant italic text-center">Chạm vào bản đồ hoặc nút "Mở Google Map" để xem đường đi</p>
+                    <p class="text-[11px] text-stone-500 mt-2 font-cormorant italic text-center">Chạm vào bản đồ hoặc nút "Mở Google Map Chỉ Đường" để xem tọa độ chính xác</p>
                 </div>
 
                 <!-- CỘT 2: THÔNG TIN THIỆP MỜI TIỆC CƯỚI -->
@@ -1004,6 +1004,13 @@
                         <h3 class="font-wedding text-3xl sm:text-4xl lg:text-5xl font-bold theme-text-accent tracking-wide">Tư Gia</h3>
                         <p class="text-xs sm:text-sm font-cormorant font-bold text-blue-900 mt-1 tracking-wider uppercase">268 TỔ 8, ẤP AN LẠC, XÃ MỸ LỢI</p>
                         <p class="text-xs text-stone-500 mt-0.5 font-cormorant">Tỉnh Đồng Tháp</p>
+                        <div class="pt-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=10.331530570983887,105.91487121582031" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-1.5 text-xs text-blue-800 hover:text-white bg-blue-50/90 hover:bg-blue-700 border border-blue-300 px-3.5 py-1.5 rounded-full shadow-xs transition font-medium cursor-pointer">
+                                <i class="fa-solid fa-location-dot text-blue-600"></i>
+                                <span>Chỉ đường Google Maps đến Tư Gia</span>
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Khối lịch ngày tháng nổi bật viền xanh & vàng kim -->
@@ -2705,7 +2712,7 @@
 
         document.getElementById('addToCalendarBtn').addEventListener('click', () => {
             const title = encodeURIComponent("Đám Cưới Võ Lê Thiên Phú & Nguyễn Thị Thu Hiền");
-            const details = encodeURIComponent("Trân trọng kính mời Quý Khách đến dự buổi tiệc cưới chung vui cùng gia đình chúng tôi tại Tư Gia: 268 Tổ 8, Ấp An Lạc, Xã Mỹ Lợi, Tỉnh Đồng Tháp.");
+            const details = encodeURIComponent("Trân trọng kính mời Quý Khách đến dự buổi tiệc cưới chung vui cùng gia đình chúng tôi tại Tư Gia: 268 Tổ 8, Ấp An Lạc, Xã Mỹ Lợi, Tỉnh Đồng Tháp.\nXem chỉ đường Google Maps: https://www.google.com/maps/search/?api=1&query=10.331530570983887,105.91487121582031");
             const location = encodeURIComponent("268 Tổ 8, Ấp An Lạc, Xã Mỹ Lợi, Tỉnh Đồng Tháp");
             const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20261107T040000Z/20261107T070000Z&details=${details}&location=${location}`;
             window.open(gcalUrl, '_blank');
