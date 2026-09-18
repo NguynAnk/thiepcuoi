@@ -9,11 +9,11 @@
     <!-- Meta SEO & Chia sẻ mạng xã hội (Open Graph cho Facebook, Zalo, iMessage) -->
     <meta name="description" content="Trân trọng kính mời Quý khách đến tham dự lễ thành hôn và chung vui cùng gia đình chúng tôi!" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://thiepcuoi-five-beryl.vercel.app/" />
+    <meta property="og:url" content="https://thienphu-thuhien.vercel.app/" />
     <meta property="og:title" content="Thiệp Cưới Online | Võ Lê Thiên Phú &amp; Nguyễn Thị Thu Hiền" />
     <meta property="og:description" content="Trân trọng kính mời Quý khách đến tham dự lễ thành hôn và chung vui cùng gia đình chúng tôi!" />
-    <meta property="og:image" content="https://thiepcuoi-five-beryl.vercel.app/assets/anh-cuoi-chinh.jpg" />
-    <meta property="og:image:secure_url" content="https://thiepcuoi-five-beryl.vercel.app/assets/anh-cuoi-chinh.jpg" />
+    <meta property="og:image" content="https://thienphu-thuhien.vercel.app/assets/anh-cuoi-chinh.jpg" />
+    <meta property="og:image:secure_url" content="https://thienphu-thuhien.vercel.app/assets/anh-cuoi-chinh.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -25,7 +25,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Thiệp Cưới Online | Võ Lê Thiên Phú &amp; Nguyễn Thị Thu Hiền" />
     <meta name="twitter:description" content="Trân trọng kính mời Quý khách đến tham dự lễ thành hôn và chung vui cùng gia đình chúng tôi!" />
-    <meta name="twitter:image" content="https://thiepcuoi-five-beryl.vercel.app/assets/anh-cuoi-chinh.jpg" />
+    <meta name="twitter:image" content="https://thienphu-thuhien.vercel.app/assets/anh-cuoi-chinh.jpg" />
 
     <!-- Nền màu xanh sapphire mặc định chống chớp trắng khi tải trang -->
     <style>
@@ -2865,12 +2865,23 @@
         /* =========================================================================
            10. CHIA SẺ & THÊM VÀO GOOGLE CALENDAR
            ========================================================================= */
+        const PRODUCTION_URL = "https://thienphu-thuhien.vercel.app/";
+
+        function getShareableUrl() {
+            if (window.location.protocol.startsWith('http') && 
+                !window.location.hostname.includes('localhost') && 
+                !window.location.hostname.includes('127.0.0.1')) {
+                return window.location.href;
+            }
+            return PRODUCTION_URL;
+        }
+
         function copyInvitationLink() {
-            copyToClipboard(window.location.href, "link thiệp cưới");
+            copyToClipboard(getShareableUrl(), "link thiệp cưới");
         }
 
         function shareOnFacebook() {
-            const url = encodeURIComponent(window.location.href);
+            const url = encodeURIComponent(getShareableUrl());
             window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
         }
 
