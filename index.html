@@ -76,6 +76,52 @@
             pointer-events: none !important;
         }
 
+        /* Tối ưu khung phát nhạc chân trang chống tràn viền trên mobile */
+        #loi-cam-on {
+            overflow: hidden !important;
+            box-sizing: border-box !important;
+        }
+
+        #footerMusicCard {
+            width: 100% !important;
+            max-width: 340px !important;
+            margin: 0 auto !important;
+            box-sizing: border-box !important;
+        }
+
+        .playlist-selector-group {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            width: 100% !important;
+            max-width: 340px !important;
+            margin: 10px auto 0 auto !important;
+            text-align: center !important;
+            box-sizing: border-box !important;
+        }
+
+        .playlist-selector-group button {
+            width: 100% !important;
+            max-width: 340px !important;
+            box-sizing: border-box !important;
+            justify-content: center !important;
+        }
+
+        @media (min-width: 640px) {
+            #footerMusicCard {
+                max-width: 440px !important;
+            }
+            .playlist-selector-group {
+                flex-direction: row !important;
+                max-width: 440px !important;
+                justify-content: center !important;
+            }
+            .playlist-selector-group button {
+                width: auto !important;
+                max-width: none !important;
+            }
+        }
+
         :root {
             --primary-accent: #1d4ed8;
             --primary-accent-dark: #1e3a8a;
@@ -1737,9 +1783,9 @@
             </svg>
 
             <!-- Embedded MP3 preview badge / Song card -->
-            <div class="px-6 mb-6 max-w-lg mx-auto">
-                <div class="bg-stone-950 text-white rounded-2xl p-3.5 flex items-center gap-3.5 shadow-md border border-sky-400/40">
-                    <div class="relative w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 bg-stone-800 cursor-pointer" onclick="toggleMusicPlayback()">
+            <div class="px-3 sm:px-6 mb-6 w-full max-w-lg mx-auto box-border">
+                <div id="footerMusicCard" class="bg-stone-950 text-white rounded-2xl p-3 sm:p-3.5 flex items-center gap-2.5 sm:gap-3.5 shadow-md border border-sky-400/40 w-full max-w-[340px] sm:max-w-md mx-auto box-border">
+                    <div class="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden flex-shrink-0 bg-stone-800 cursor-pointer" onclick="toggleMusicPlayback()">
                         <img id="musicCoverImg" src="./assets/pic1.jpg"
                             alt="Song cover" class="w-full h-full object-cover object-top"
                             onerror="this.src='./pic1.jpg'" />
@@ -1747,39 +1793,39 @@
                             <i class="fa-solid fa-music text-sm text-sky-300"></i>
                         </div>
                     </div>
-                    <div class="text-left flex-grow overflow-hidden">
+                    <div class="text-left flex-grow overflow-hidden min-w-0">
                         <p id="cardSongTitle" class="text-sm font-bold truncate text-sky-200">Beautiful In White</p>
-                        <p id="cardSongArtist" class="text-xs text-stone-400 truncate">Shane Filan • Nhạc Cưới Bất Hủ</p>
+                        <p id="cardSongArtist" class="text-[11px] sm:text-xs text-stone-400 truncate">Shane Filan • Nhạc Cưới Bất Hủ</p>
                         <div class="flex items-center gap-1.5 mt-1.5">
                             <span class="w-1.5 h-3.5 bg-blue-500 rounded-full animate-pulse"></span>
                             <span class="w-1.5 h-5 bg-sky-400 rounded-full animate-pulse delay-75"></span>
                             <span class="w-1.5 h-2.5 bg-blue-400 rounded-full animate-pulse delay-150"></span>
                             <span class="w-1.5 h-6 bg-sky-300 rounded-full animate-pulse"></span>
-                            <span id="musicTimeDisplay" class="text-[10px] text-stone-400 ml-1.5">00:00 / 00:00</span>
+                            <span id="musicTimeDisplay" class="text-[10px] text-stone-400 ml-1 whitespace-nowrap">00:00 / 00:00</span>
                         </div>
                     </div>
                     <!-- Nút điều khiển -->
-                    <div class="flex items-center gap-1.5 flex-shrink-0">
+                    <div class="flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
                         <button type="button" onclick="switchMusicTrack(event)" title="Đổi bài hát"
-                            class="w-8 h-8 rounded-full bg-stone-800 hover:bg-stone-700 text-sky-300 flex items-center justify-center text-xs transition border border-stone-700 cursor-pointer">
+                            class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-stone-800 hover:bg-stone-700 text-sky-300 flex items-center justify-center text-xs transition border border-stone-700 cursor-pointer">
                             <i class="fa-solid fa-repeat"></i>
                         </button>
                         <button onclick="toggleMusicPlayback()"
-                            class="w-10 h-10 rounded-full theme-bg-accent text-white flex items-center justify-center text-sm hover:opacity-90 transition shadow-md cursor-pointer">
+                            class="w-9 h-9 sm:w-10 sm:h-10 rounded-full theme-bg-accent text-white flex items-center justify-center text-sm hover:opacity-90 transition shadow-md cursor-pointer">
                             <i id="subPlayIcon" class="fa-solid fa-play"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- Playlist Selector Pills -->
-                <div class="flex items-center justify-center gap-2 mt-2.5 flex-wrap">
+                <div class="playlist-selector-group flex flex-col sm:flex-row items-center justify-center gap-2 mt-3 w-full max-w-[340px] sm:max-w-md mx-auto text-center box-border">
                     <button id="trackBtn0" onclick="selectMusicTrack(0, true)"
-                        class="px-3 py-1 text-xs rounded-full border transition flex items-center gap-1.5 bg-blue-600 text-white border-blue-400 shadow-sm cursor-pointer font-medium">
+                        class="w-full sm:w-auto px-4 py-1.5 text-xs rounded-full border transition flex items-center justify-center gap-2 bg-blue-600 text-white border-blue-400 shadow-sm cursor-pointer font-medium">
                         <i class="fa-solid fa-circle-play text-[10px]"></i>
                         <span>1. Beautiful In White (Mặc định)</span>
                     </button>
                     <button id="trackBtn1" onclick="selectMusicTrack(1, true)"
-                        class="px-3 py-1 text-xs rounded-full border transition flex items-center gap-1.5 bg-stone-800 text-stone-300 border-stone-700 hover:bg-stone-700 cursor-pointer font-normal">
+                        class="w-full sm:w-auto px-4 py-1.5 text-xs rounded-full border transition flex items-center justify-center gap-2 bg-stone-800 text-stone-300 border-stone-700 hover:bg-stone-700 cursor-pointer font-normal">
                         <i class="fa-solid fa-circle-play text-[10px]"></i>
                         <span>2. Young and Beautiful</span>
                     </button>
@@ -2186,11 +2232,11 @@
 
             if (btn0 && btn1) {
                 if (currentTrackIdx === 0) {
-                    btn0.className = "px-3 py-1 text-xs rounded-full border transition flex items-center gap-1.5 bg-blue-600 text-white border-blue-400 shadow-sm cursor-pointer font-medium";
-                    btn1.className = "px-3 py-1 text-xs rounded-full border transition flex items-center gap-1.5 bg-stone-800 text-stone-300 border-stone-700 hover:bg-stone-700 cursor-pointer font-normal";
+                    btn0.className = "w-full sm:w-auto px-4 py-1.5 text-xs rounded-full border transition flex items-center justify-center gap-2 bg-blue-600 text-white border-blue-400 shadow-sm cursor-pointer font-medium";
+                    btn1.className = "w-full sm:w-auto px-4 py-1.5 text-xs rounded-full border transition flex items-center justify-center gap-2 bg-stone-800 text-stone-300 border-stone-700 hover:bg-stone-700 cursor-pointer font-normal";
                 } else {
-                    btn1.className = "px-3 py-1 text-xs rounded-full border transition flex items-center gap-1.5 bg-blue-600 text-white border-blue-400 shadow-sm cursor-pointer font-medium";
-                    btn0.className = "px-3 py-1 text-xs rounded-full border transition flex items-center gap-1.5 bg-stone-800 text-stone-300 border-stone-700 hover:bg-stone-700 cursor-pointer font-normal";
+                    btn1.className = "w-full sm:w-auto px-4 py-1.5 text-xs rounded-full border transition flex items-center justify-center gap-2 bg-blue-600 text-white border-blue-400 shadow-sm cursor-pointer font-medium";
+                    btn0.className = "w-full sm:w-auto px-4 py-1.5 text-xs rounded-full border transition flex items-center justify-center gap-2 bg-stone-800 text-stone-300 border-stone-700 hover:bg-stone-700 cursor-pointer font-normal";
                 }
             }
         }
