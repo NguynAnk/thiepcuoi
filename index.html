@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Thiệp Cưới Online | Võ Lê Thiên Phú &amp; Nguyễn Thị Thu Hiền</title>
 
+    <!-- Nền màu xanh sapphire mặc định chống chớp trắng khi tải trang -->
+    <style>
+        html, body {
+            background-color: #071326;
+        }
+    </style>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -55,6 +62,20 @@
     </script>
 
     <style>
+        html, body {
+            background-color: #071326;
+        }
+
+        /* Chống rớt dòng số tài khoản trên mọi kích thước màn hình */
+        #groomAccNum, #brideAccNum, .acc-number-text {
+            white-space: nowrap !important;
+        }
+
+        /* Pointer events none cho iframe bản đồ chống kẹt ngón tay khi cuộn */
+        .map-iframe-no-trap {
+            pointer-events: none !important;
+        }
+
         :root {
             --primary-accent: #1d4ed8;
             --primary-accent-dark: #1e3a8a;
@@ -338,10 +359,89 @@
         .hanging-card-item:hover .hanging-clip {
             transform: translateX(-50%) scale(1.15);
         }
+
+        /* =========================================================================
+           TỐI ƯU GIAO DIỆN MOBILE (@MEDIA MAX-WIDTH: 600PX)
+           ========================================================================= */
+        @media (max-width: 600px) {
+            /* 1. Thu gọn cụm nút đổi màu (Theme Switcher) */
+            aside.theme-switcher-aside {
+                top: 6px !important;
+                left: 6px !important;
+                padding: 2px !important;
+            }
+            aside.theme-switcher-aside button {
+                padding: 2px 6px !important;
+                font-size: 11px !important;
+                gap: 2px !important;
+            }
+
+            /* 2. Thu gọn cụm nút phát nhạc (Music Controller) */
+            aside.music-controller-aside {
+                top: 6px !important;
+                right: 6px !important;
+                padding: 2px 6px !important;
+                gap: 3px !important;
+            }
+            aside.music-controller-aside #discIcon {
+                width: 22px !important;
+                height: 22px !important;
+                border-width: 1.5px !important;
+            }
+            aside.music-controller-aside #discIcon i {
+                font-size: 11px !important;
+            }
+            aside.music-controller-aside #musicStateIcon {
+                font-size: 10px !important;
+                padding-left: 1px !important;
+            }
+            aside.music-controller-aside .song-switch-btn {
+                width: 20px !important;
+                height: 20px !important;
+                font-size: 8px !important;
+                margin-left: 2px !important;
+            }
+
+            /* 3. Thu gọn Header cố định điều hướng */
+            header.header-nav-bar {
+                top: 36px !important;
+                padding: 3px 2px !important;
+                border-radius: 12px !important;
+                width: calc(100% - 12px) !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25) !important;
+            }
+            header.header-nav-bar .nav-link {
+                padding: 2px 1px !important;
+                flex: 1 1 0% !important;
+            }
+            header.header-nav-bar .nav-link i {
+                font-size: 11px !important;
+                margin-bottom: 1px !important;
+            }
+            header.header-nav-bar .nav-link span {
+                font-size: 8.5px !important;
+                line-height: 1.1 !important;
+                white-space: nowrap !important;
+                letter-spacing: -0.02em !important;
+                font-weight: 600 !important;
+            }
+            header.header-nav-bar .nav-link-active {
+                border-radius: 8px !important;
+                box-shadow: 0 1px 4px rgba(29, 78, 216, 0.2), inset 0 0 0 1px rgba(212, 175, 55, 0.6) !important;
+            }
+
+            /* 4. Điều chỉnh padding container để thoáng đẹp */
+            .wedding-app-container {
+                padding-top: 3.5rem !important;
+                padding-bottom: 2rem !important;
+            }
+        }
     </style>
 </head>
 
-<body class="theme-sapphire text-stone-800 font-sans antialiased min-h-screen relative selection:bg-blue-100 selection:text-blue-900 transition-colors duration-500">
+<body class="theme-sapphire text-stone-800 font-sans antialiased min-h-screen relative selection:bg-blue-100 selection:text-blue-900 transition-colors duration-500" style="background-color: #071326;">
 
     <!-- THANH TIẾN TRÌNH CUỘN TRANG VÀNG KIM (Scroll Progress Indicator) -->
     <div id="scrollProgressBar" aria-hidden="true"></div>
@@ -382,7 +482,7 @@
 
     <!-- BỘ CHUYỂN ĐỔI THEME NỀN (1-Click Switcher: Xanh Sapphire 💎 vs Xanh Pastel ❄️) -->
     <aside aria-label="Bộ chuyển đổi màu sắc thiệp"
-        class="fixed top-4 left-4 z-50 flex items-center bg-stone-900/90 backdrop-blur-md p-1 rounded-full border border-sky-400/80 shadow-xl transition-all hover:scale-105">
+        class="theme-switcher-aside fixed top-4 left-4 z-50 flex items-center bg-stone-900/90 backdrop-blur-md p-1 rounded-full border border-sky-400/80 shadow-xl transition-all hover:scale-105">
         <button id="themeSapphireBtn" onclick="setWeddingTheme('sapphire')" type="button"
             class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all text-white bg-blue-700 shadow-md cursor-pointer">
             <span>💎</span>
@@ -397,7 +497,7 @@
 
     <!-- TRÌNH PHÁT NHẠC NỀN CƯỚI (Floating Music Controller) -->
     <aside aria-label="Trình phát nhạc nền"
-        class="fixed top-4 right-4 z-50 flex items-center gap-1.5 bg-stone-900/90 backdrop-blur-md pl-3 pr-2 py-1.5 rounded-full shadow-xl border border-amber-400/80 transition-all hover:scale-105">
+        class="music-controller-aside fixed top-4 right-4 z-50 flex items-center gap-1.5 bg-stone-900/90 backdrop-blur-md pl-3 pr-2 py-1.5 rounded-full shadow-xl border border-amber-400/80 transition-all hover:scale-105">
         <button id="musicToggleBtn" type="button"
             class="flex items-center gap-2 text-xs font-medium text-stone-100 focus:outline-none cursor-pointer">
             <div id="discIcon"
@@ -412,7 +512,7 @@
         </button>
         <!-- Nút đổi bài hát nhanh -->
         <button type="button" onclick="switchMusicTrack(event)" title="Đổi bài hát (Young and Beautiful / Beautiful In White)"
-            class="w-7 h-7 rounded-full bg-stone-800 hover:bg-amber-500 hover:text-stone-950 text-amber-300 flex items-center justify-center text-[10px] transition cursor-pointer border border-amber-400/50 shadow-sm ml-1">
+            class="song-switch-btn w-7 h-7 rounded-full bg-stone-800 hover:bg-amber-500 hover:text-stone-950 text-amber-300 flex items-center justify-center text-[10px] transition cursor-pointer border border-amber-400/50 shadow-sm ml-1">
             <i class="fa-solid fa-forward-step"></i>
         </button>
     </aside>
@@ -422,7 +522,7 @@
 
         <!-- Top Floating Quick Navigation Bar với viền vàng lấp lánh & Scroll-Spy -->
         <header
-            class="bg-white/95 backdrop-blur-md rounded-2xl p-2 sm:p-2.5 shadow-xl border border-amber-300/80 flex items-center justify-around text-xs font-medium text-stone-700 sticky top-3 z-40 max-w-3xl mx-auto transition-all">
+            class="header-nav-bar bg-white/95 backdrop-blur-md rounded-2xl p-2 sm:p-2.5 shadow-xl border border-amber-300/80 flex items-center justify-around text-xs font-medium text-stone-700 sticky top-3 z-40 max-w-3xl mx-auto transition-all">
             <a href="#overview-showcase" data-nav-target="overview-showcase" class="nav-link hover:text-blue-700 flex flex-col items-center py-1.5 px-2 sm:px-3 group transition">
                 <i class="fa-solid fa-layer-group text-base theme-text-accent mb-0.5 group-hover:scale-110 transition"></i>
                 <span class="font-medium text-[11px] sm:text-xs">Tổng Quan</span>
@@ -970,18 +1070,18 @@
                 <!-- CỘT 1: BẢN ĐỒ DẪN ĐƯỜNG TƯ GIA ĐỒNG THÁP -->
                 <div class="lg:col-span-5 h-full flex flex-col">
                     <div class="relative w-full h-72 sm:h-96 lg:h-[440px] bg-stone-200 rounded-2xl overflow-hidden border border-blue-200 shadow-md">
-                        <iframe title="Bản đồ dẫn đường đến Tư Gia Đồng Tháp" class="w-full h-full border-0"
+                        <iframe title="Bản đồ dẫn đường đến Tư Gia Đồng Tháp" class="w-full h-full border-0 pointer-events-none map-iframe-no-trap" style="pointer-events: none;"
                             src="https://maps.google.com/maps?q=10.331530570983887,105.91487121582031&t=&z=16&ie=UTF8&iwloc=&output=embed"
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
 
                         <a href="https://www.google.com/maps/search/?api=1&query=10.331530570983887,105.91487121582031" target="_blank" rel="noopener noreferrer"
-                            class="absolute bottom-3 right-3 bg-white/95 backdrop-blur text-stone-800 text-xs font-semibold px-4 py-2 rounded-full shadow-lg border border-blue-300 flex items-center gap-2 hover:bg-blue-50 transition">
+                            class="absolute bottom-3 right-3 bg-white/95 backdrop-blur text-stone-800 text-xs font-semibold px-4 py-2 rounded-full shadow-lg border border-blue-300 flex items-center gap-2 hover:bg-blue-50 transition pointer-events-auto">
                             <i class="fa-solid fa-diamond-turn-right theme-text-accent text-sm"></i>
                             <span>Mở Google Map Chỉ Đường</span>
                         </a>
                     </div>
-                    <p class="text-[11px] text-stone-500 mt-2 font-cormorant italic text-center">Chạm vào bản đồ hoặc nút "Mở Google Map Chỉ Đường" để xem tọa độ chính xác</p>
+                    <p class="text-[11px] text-stone-500 mt-2 font-cormorant italic text-center">Bấm nút "Mở Google Map Chỉ Đường" để xem tọa độ và dẫn đường chính xác</p>
                 </div>
 
                 <!-- CỘT 2: THÔNG TIN THIỆP MỜI TIỆC CƯỚI -->
@@ -1418,8 +1518,8 @@
                 <!-- Danh sách STK Chú Rể & Cô Dâu 2 cột cân xứng trên Desktop -->
                 <div class="max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6 text-left">
                     <!-- STK Chú Rể -->
-                    <div class="bg-blue-50/90 border border-blue-300 rounded-2xl p-4 flex items-center justify-between shadow-sm gap-3">
-                        <div class="flex items-center gap-3 min-w-0">
+                    <div class="bg-blue-50/90 border border-blue-300 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between shadow-sm gap-3">
+                        <div class="flex items-center gap-3 min-w-0 w-full sm:w-auto">
                             <div onclick="showQrModal('groom')" title="Bấm để xem mã QR phóng to"
                                 class="w-14 h-16 rounded-xl overflow-hidden border border-blue-300 bg-white p-1 cursor-pointer shadow-sm flex-shrink-0 hover:scale-105 transition group relative">
                                 <img src="./assets/qr_groom.png" alt="QR Chú Rể" class="w-full h-full object-cover object-top" />
@@ -1427,24 +1527,24 @@
                                     <i class="fa-solid fa-magnifying-glass-plus text-white text-xs"></i>
                                 </div>
                             </div>
-                            <div class="min-w-0">
+                            <div class="min-w-0 flex-1">
                                 <div class="flex items-center gap-1.5 text-xs font-bold text-stone-800">
                                     <span class="w-2 h-2 rounded-full bg-blue-600 inline-block flex-shrink-0"></span>
                                     <span class="truncate">Vietcombank - STK Chú Rể</span>
                                 </div>
-                                <p id="groomAccNum" class="font-mono text-base font-bold text-stone-900 tracking-wider mt-0.5">1034 316 383</p>
+                                <p id="groomAccNum" class="acc-number-text font-mono text-base font-bold text-stone-900 tracking-wider mt-0.5 whitespace-nowrap" style="white-space: nowrap;">1034 316 383</p>
                                 <p class="text-[11px] text-blue-900 font-medium uppercase truncate">CHỦ TK: VÕ LÊ THIÊN PHÚ</p>
-                                <p class="text-[10px] text-stone-500">Chi nhánh: PGD Bến Nghé</p>
+                                <p class="text-[10px] text-stone-500 truncate">Chi nhánh: PGD Bến Nghé</p>
                             </div>
                         </div>
-                        <div class="flex flex-col gap-2 flex-shrink-0">
+                        <div class="flex flex-row sm:flex-col gap-2 w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-t-0 border-blue-200/80 flex-shrink-0">
                             <button onclick="copyToClipboard('1034316383', 'STK Chú Rể (Vietcombank)')"
-                                class="px-3 py-1.5 text-xs bg-white border border-blue-300 rounded-lg text-stone-800 font-medium hover:bg-blue-100 active:scale-95 transition flex items-center gap-1 shadow-sm cursor-pointer">
+                                class="flex-1 sm:flex-initial px-3 py-1.5 text-xs bg-white border border-blue-300 rounded-lg text-stone-800 font-medium hover:bg-blue-100 active:scale-95 transition flex items-center justify-center gap-1 shadow-sm cursor-pointer whitespace-nowrap" style="white-space: nowrap;">
                                 <i class="fa-regular fa-copy"></i>
                                 <span>Sao chép</span>
                             </button>
                             <button onclick="showQrModal('groom')"
-                                class="px-3 py-1.5 text-xs theme-bg-accent text-white rounded-lg font-medium hover:opacity-90 active:scale-95 transition flex items-center gap-1 shadow-sm cursor-pointer">
+                                class="flex-1 sm:flex-initial px-3 py-1.5 text-xs theme-bg-accent text-white rounded-lg font-medium hover:opacity-90 active:scale-95 transition flex items-center justify-center gap-1 shadow-sm cursor-pointer whitespace-nowrap" style="white-space: nowrap;">
                                 <i class="fa-solid fa-qrcode"></i>
                                 <span>Mã QR</span>
                             </button>
@@ -1452,8 +1552,8 @@
                     </div>
 
                     <!-- STK Cô Dâu -->
-                    <div class="theme-bg-soft border border-sky-300 rounded-2xl p-4 flex items-center justify-between shadow-sm gap-3">
-                        <div class="flex items-center gap-3 min-w-0">
+                    <div class="theme-bg-soft border border-sky-300 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between shadow-sm gap-3">
+                        <div class="flex items-center gap-3 min-w-0 w-full sm:w-auto">
                             <div onclick="showQrModal('bride')" title="Bấm để xem mã QR phóng to"
                                 class="w-14 h-16 rounded-xl overflow-hidden border border-sky-300 bg-white p-1 cursor-pointer shadow-sm flex-shrink-0 hover:scale-105 transition group relative">
                                 <img src="./assets/qr_bride.png" alt="QR Cô Dâu" class="w-full h-full object-cover object-top" />
@@ -1461,24 +1561,24 @@
                                     <i class="fa-solid fa-magnifying-glass-plus text-white text-xs"></i>
                                 </div>
                             </div>
-                            <div class="min-w-0">
+                            <div class="min-w-0 flex-1">
                                 <div class="flex items-center gap-1.5 text-xs font-bold text-stone-800">
                                     <span class="w-2 h-2 rounded-full bg-sky-500 inline-block flex-shrink-0"></span>
                                     <span class="truncate">ACB - STK Cô Dâu</span>
                                 </div>
-                                <p id="brideAccNum" class="font-mono text-base font-bold text-stone-900 tracking-wider mt-0.5">186 104 919</p>
+                                <p id="brideAccNum" class="acc-number-text font-mono text-base font-bold text-stone-900 tracking-wider mt-0.5 whitespace-nowrap" style="white-space: nowrap;">186 104 919</p>
                                 <p class="text-[11px] text-stone-700 font-medium uppercase truncate">CHỦ TK: NGUYỄN THỊ THU HIỀN</p>
-                                <p class="text-[10px] text-stone-500">Ngân hàng TMCP Á Châu</p>
+                                <p class="text-[10px] text-stone-500 truncate">Ngân hàng TMCP Á Châu</p>
                             </div>
                         </div>
-                        <div class="flex flex-col gap-2 flex-shrink-0">
+                        <div class="flex flex-row sm:flex-col gap-2 w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-t-0 border-sky-200/80 flex-shrink-0">
                             <button onclick="copyToClipboard('186104919', 'STK Cô Dâu (ACB)')"
-                                class="px-3 py-1.5 text-xs bg-white border border-stone-300 rounded-lg text-stone-800 font-medium hover:bg-stone-50 active:scale-95 transition flex items-center gap-1 shadow-sm cursor-pointer">
+                                class="flex-1 sm:flex-initial px-3 py-1.5 text-xs bg-white border border-stone-300 rounded-lg text-stone-800 font-medium hover:bg-stone-50 active:scale-95 transition flex items-center justify-center gap-1 shadow-sm cursor-pointer whitespace-nowrap" style="white-space: nowrap;">
                                 <i class="fa-regular fa-copy"></i>
                                 <span>Sao chép</span>
                             </button>
                             <button onclick="showQrModal('bride')"
-                                class="px-3 py-1.5 text-xs theme-bg-accent text-white rounded-lg font-medium hover:opacity-90 active:scale-95 transition flex items-center gap-1 shadow-sm cursor-pointer">
+                                class="flex-1 sm:flex-initial px-3 py-1.5 text-xs theme-bg-accent text-white rounded-lg font-medium hover:opacity-90 active:scale-95 transition flex items-center justify-center gap-1 shadow-sm cursor-pointer whitespace-nowrap" style="white-space: nowrap;">
                                 <i class="fa-solid fa-qrcode"></i>
                                 <span>Mã QR</span>
                             </button>
@@ -1958,12 +2058,14 @@
             if (theme === 'pastel') {
                 body.classList.remove('theme-sapphire');
                 body.classList.add('theme-pastel');
+                body.style.backgroundColor = '#e0f2fe';
                 if (pastelBtn) pastelBtn.className = "flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all text-white bg-sky-600 shadow-md";
                 if (sapphireBtn) sapphireBtn.className = "flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all text-stone-300 hover:text-white";
                 showToast("Đã đổi sang nền Xanh Pastel & Trắng Tuyết ❄️");
             } else {
                 body.classList.remove('theme-pastel');
                 body.classList.add('theme-sapphire');
+                body.style.backgroundColor = '#071326';
                 if (sapphireBtn) sapphireBtn.className = "flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all text-white bg-blue-700 shadow-md";
                 if (pastelBtn) pastelBtn.className = "flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all text-stone-300 hover:text-white";
                 showToast("Đã đổi sang nền Xanh Sapphire Quý Phái 💎");
