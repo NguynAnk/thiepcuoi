@@ -2123,8 +2123,8 @@
         /* =========================================================================
            3. CẤU HÌNH NGÀY CƯỚI & ĐẾM NGƯỢC (COUNTDOWN TIMER)
            ========================================================================= */
-        // Ngày cưới theo thiệp: Thứ Bảy, 07/11/2026 (Month index 10 trong JavaScript)
-        const weddingDate = new Date(2026, 10, 7, 11, 0, 0).getTime();
+        // Ngày cưới chuẩn múi giờ Việt Nam (UTC+07:00): 11:00 Thứ Bảy, 07/11/2026
+        const weddingDate = new Date("2026-11-07T11:00:00+07:00").getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
